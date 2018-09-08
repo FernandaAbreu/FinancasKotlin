@@ -32,15 +32,23 @@ class ResumoView(private val view: View,
             setTextColor(corReceita)
             text = totalReceita.formataValorParaBrasileiro()
         }
+        // when  you need fix null
+        /*view?.let {
+            with(it.resumo_card_receita) {
+                setTextColor(corReceita)
+                text = totalReceita.formataValorParaBrasileiro()
+            }
+        }*/
+
     }
 
 
 
     private fun adicionaDespesa(){
         val totalDespesa = resumo.receita
-        with(view.resumo_card_despesa){
+        with(view.resumo_card_despesa) {
             setTextColor(corDespesa)
-            text=totalDespesa.formataValorParaBrasileiro()
+            text = totalDespesa.formataValorParaBrasileiro()
         }
 
     }
@@ -48,9 +56,9 @@ class ResumoView(private val view: View,
     private fun adicionaTotal(){
        val total= resumo.total
        val cor = getColorBy(total)
-        with(view.resumo_card_total){
+        with(view.resumo_card_total) {
             setTextColor(cor)
-            text=total.formataValorParaBrasileiro()
+            text = total.formataValorParaBrasileiro()
         }
     }
 
